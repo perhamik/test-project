@@ -7,10 +7,13 @@ $title-size: 14px;
 $text-size: 13px;
 $family: Ubuntu;
 
-$tap-green: rgba(0, 141, 54, 0.1);
-$tap-yellow: rgba(255, 220, 131, 0.3);
-$tap-violet: rgba(150, 170, 224, 0.3);
+$tap-green: rgba(0, 141, 54, 0.1); $text-tab-green: #008D36;
+$tap-yellow: rgba(255, 220, 131, 0.3); $text-tab-yellow: #DC9F04;
+$tap-violet: rgba(150, 170, 224, 0.3); $text-tab-violet: #647FC8;
 
+*{
+  box-sizing: border-box;
+}
 body{
   background-color: $page-bg;
 }
@@ -24,6 +27,9 @@ body{
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);  
   margin: 3vw;
   padding: 5vw;
+  *{
+    font-family: $family;
+  }
   .main-info{
     display: flex;
     .offer-picture{
@@ -38,8 +44,7 @@ body{
       max-height: 48px;
       max-width: 180px;
       h1 {
-        color: $primary-color;
-        font-family: $family;
+        color: $primary-color;        
         font-weight: bold;
         font-size: $title-size;
         text-transform: uppercase;
@@ -55,10 +60,81 @@ body{
       }
     }    
   }
-  p{
-    font-size: $text-size;
-    line-height: 1.5;
-    font-family: $family;
-    font-weight: 400;
-  }  
+  .details{
+    p{
+      font-size: $text-size;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+    .invest{
+      display: flex;
+      flex-wrap: wrap;
+      h4{
+        flex-basis: 100%;
+        margin: 0 0 2px;
+        color: rgba(47, 72, 88, 0.5);
+        font-size: 12px;
+        line-height: 14px;
+        height: 14px;
+        width: 85px;
+      }
+      h2{
+        margin: 0;
+        font-size: 18px;        
+        height: 21px;
+        line-height: 21px;
+        color: $primary-color;
+      }
+      span{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 22px;
+        button{
+          border: none;
+          border-radius: 5px;
+          padding: 2px 9px;
+          margin: 3px 10px 3px 0px;
+          font-size: $text-size;
+          text-transform: uppercase;
+          line-height: 1.15;
+          height: 20px;
+          width: max-content;
+          &:first-child{
+            background-color: $tap-green;
+            color: $text-tab-green;
+          }
+          &:nth-child(2){
+            background-color: $tap-yellow;
+            color: $text-tab-yellow;
+          }
+          &:last-child{
+            background-color: $tap-violet;
+            color: $text-tab-violet;
+          }
+        }
+      }
+    }
+    .expand-button{
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      font-size: $text-size;
+      color: #008D36;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  
+}
+
+@media screen and (min-width: 540px){
+  .details{
+    margin-left: 100px;
+    span{
+      margin-left: 20px;
+    }
+  }
+
 }

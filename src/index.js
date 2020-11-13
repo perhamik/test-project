@@ -33,14 +33,17 @@ function Offer () {
                     [stars.className, stars.src, stars.alt] = relatives.rate;
                 mainInfoGroup.appendChild(stars);
             mainInfo.appendChild(mainInfoGroup);
-                
         offer.appendChild(mainInfo);
-            let description = document.createElement('p');
-            description.textContent = relatives.description;
-        offer.appendChild(description);
-            let invRet = [relatives.invest, relatives.returned];
-            for(let bl in invRet){
+            let details = document.createElement('div');
+            details.className = 'details';
+                let description = document.createElement('p');
+                description.textContent = relatives.description;
+            details.appendChild(description);
+            
+            const invRet = [relatives.invest, relatives.returned];           
+            invRet.forEach(bl => {
                 let investReturn = document.createElement('div');
+                    investReturn.className = 'invest';
                     let name = document.createElement('h4');
                     name.textContent = bl.heading;
                     investReturn.appendChild(name);
@@ -50,15 +53,19 @@ function Offer () {
                     investReturn.appendChild(target);
 
                     let tags = document.createElement('span');
-                    for(let tag in bl.tags){
+                    bl.tags.forEach(tag => {
                         let tg = document.createElement('button');
                         tg.textContent = tag;
                         tags.appendChild(tg);
-                    }
+                    })
                     investReturn.appendChild(tags);
-                offer.appendChild(investReturn);
-            }
-        
+                details.appendChild(investReturn);
+            })
+            let moreBtn = document.createElement('button');
+            moreBtn.className = 'expand-button';
+            moreBtn.textContent = relatives.expand;
+            details.appendChild(moreBtn);
+        offer.appendChild(details);
     parent.appendChild(offer);
     return parent;
 }
