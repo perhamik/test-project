@@ -1,7 +1,7 @@
 {
-  "name": "Test",
-  "version": "1.0.0",
-  "description": "",
+  "name": "test-project",
+  "version": "1.0.2",
+  "description": "First install dependencies:",
   "main": "index.js",
   "keywords": [],
   "author": "Denys Yaroshenko",
@@ -10,9 +10,6 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production"
-  },
-  "dependencies": {
-    "vanilla-javascript": "^1.1.1"
   },
   "devDependencies": {
     "webpack": "^5.4.0",
