@@ -25,8 +25,8 @@ body{
   background-color: $offer-bg;
   border-radius: 10px;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);  
-  margin: 3vw;
-  padding: 5vw;
+  margin: 25px 3vw;
+  padding: 30px;
   *{
     font-family: $family;
   }
@@ -65,7 +65,8 @@ body{
       font-size: $text-size;
       line-height: 1.5;
       font-weight: 400;
-    }
+      max-width: 538px;
+    }    
     .invest{
       display: flex;
       flex-wrap: wrap;
@@ -79,7 +80,7 @@ body{
         width: 85px;
       }
       h2{
-        margin: 0;
+        margin: 0 20px 0 0;
         font-size: 18px;        
         height: 21px;
         line-height: 21px;
@@ -115,26 +116,48 @@ body{
         }
       }
     }
-    .expand-button{
-      background-color: transparent;
-      border: none;
-      padding: 0;
-      font-size: $text-size;
-      color: #008D36;
-      &:hover{
-        text-decoration: underline;
+    .hide-text{
+      margin: 0 0 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s;
+    }
+    .expand-cont{
+      width: 100%;
+      .expand-button{
+        display: block;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        font-size: $text-size;
+        color: #008D36;
+        &:hover{
+          text-decoration: underline;
+        }
       }
     }
+    
   }
   
 }
-
+@media screen and (max-width: 539px){
+  .expand-button{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 @media screen and (min-width: 540px){
   .details{
     margin-left: 100px;
-    span{
-      margin-left: 20px;
+    .expand-button{
+      margin-right: auto;
     }
   }
-
+}
+@media screen and (min-width: 1000px){
+  .details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
